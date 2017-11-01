@@ -1,0 +1,93 @@
+#:kivy 1.10
+<Button>:
+    font_size: 20
+    size_hint: 0.3, 0.1
+<MenuScreen>
+    FloatLayout:
+        orientation: 'horizontal'
+        Image:
+            source:'doski.png'
+            allow_stretch: True
+            keep_ratio: False
+        Label:
+            id: hypertext
+            x: root.center_x-self.width/2
+            y: root.center_y-self.height/10
+        Button:
+            text: 'Play'
+            x: root.center_x-self.width/2
+            y: root.center_y+(self.height)*2
+            background_normal: 'doschechki.png'
+            background_down: 'galaxy.png'
+            on_press:
+                hypertext.text = 'Return To Innocence'
+                print(self.width, self.height)
+            pos: 100, 300
+        Button:
+            text: 'Continue'
+            x: root.center_x-self.width/2
+            y: root.center_y+self.height/4
+            background_normal: 'doschechki.png'
+            on_press:
+                hypertext.text = ' '
+                hypertext.text = 'You can`t do this'
+        Button:
+            text: 'Gallery'
+            x: root.center_x-self.width/2
+            y: root.center_y-self.height-self.height/2
+            background_normal: 'doschechki.png'
+            on_press:
+                root.manager.current = 'gallery'
+        Button:
+            text: 'About us'
+            x: root.center_x-self.width/2
+            y: root.center_y-self.height-(self.height)*2-self.height/4
+            size_hint: 0.2, 0.1
+            background_normal: 'doschechki.png'
+            on_press:
+                hypertext.text = ' '
+                hypertext.text  = 'Real Game Company'
+                root.manager.current = 'about'
+        Button:
+            text: 'Mute'
+            size_hint: 0.08, 0.08
+            x: root.center_x+root.width/2.5
+            y: root.center_y-root.height/3-root.height/8
+            background_normal: 'doschechki.png'
+
+<GalleryScreen>
+    FloatLayout:
+        orientation: 'horizontal'
+        Image:
+            source:'doschechki.png'
+            allow_stretch: True
+            keep_ratio: False
+        Button:
+            text: 'Back To Menu'
+            size_hint: 0.25, 0.1
+            x: root.center_x+(self.height)*3
+            y: root.center_y-(self.height)*4.75
+            background_normal: 'doski.png'
+            on_press:
+                root.manager.current = 'menu'
+<AboutScreen>
+    FloatLayout:
+        orientation: 'horizontal'
+        Image:
+            source:'doski.png'
+            allow_stretch: True
+            keep_ratio: False
+        Label:
+            id: hypertext
+            x: root.center_x-self.width/2
+            y: root.center_y-self.height/10
+        Button:
+            font_size: 40
+            text: '-->'
+            x: root.center_x
+            on_press:
+                hypertext.text = ' '
+                hypertext.text = root.maketext()
+
+
+
