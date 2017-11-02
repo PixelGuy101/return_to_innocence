@@ -11,12 +11,10 @@ class MenuScreen(Screen):
 class GalleryScreen(Screen):
     pass
 class AboutScreen(Screen):
-    def maketext(self):
-        arr = []
-        index = 0
-        for i in range(1, 6):
-            arr.append(i)
-        return str(arr[0])
+    def createtext(self, index):
+        arr = ['Первый пробный текст','Второй пробный текст','Третий пробный текст']
+        return arr[index]
+
 sm = ScreenManager(transition=WipeTransition())
 sm.add_widget(MenuScreen(name='menu'))
 sm.add_widget(GalleryScreen(name='gallery'))
